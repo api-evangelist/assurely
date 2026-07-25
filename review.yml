@@ -1,0 +1,219 @@
+aid: assurely
+name: Assurely
+review:
+  question: Does Assurely expose a public, self-serve developer portal or a downloadable
+    API definition for its embedded insurance products?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United States
+  sector: Insurance
+  tier: embedded-insurance
+  gated: true
+  portalConfirmed: false
+  openapiHarvested: false
+  specsCount: 0
+findings:
+  summary: |
+    Assurely publishes no public API surface of any kind. There is no developer
+    portal, no API reference, no downloadable OpenAPI/Swagger, no Postman
+    workspace, no GraphQL endpoint, and no event/webhook catalog. Beyond that,
+    Assurely's public infrastructure is now entirely offline. The marketing site
+    at www.assurely.com returns HTTP 404 with a Squarespace "Website Expired"
+    interstitial, and every application subdomain (api., client., tigermark.)
+    is a dangling CNAME pointing at an AWS load balancer hostname
+    (hostingelb-production-1845880914.us-east-2.elb.amazonaws.com) that no longer
+    resolves. Assurely was acquired by Equal Parts on 2025-06-26 and the public
+    estate appears to have been decommissioned rather than migrated.
+
+    The word "embedded" in Assurely's own marketing did not mean an API. Its
+    Insurance-as-a-Service (IaaS) pitch described a commercial revenue-share
+    partnership in which Assurely stood up white-labeled, industry-specific
+    quote-and-bind web flows for a vertical SaaS partner's users (per-partner
+    paths such as tigermark.assurely.com/partner/wefunder and
+    client.assurely.com/partner/coconstruct), backed by "full service
+    administrative and advisory capabilities" and a "blended technology + human
+    touch user experience." That is a hosted-page distribution model, not a
+    programmable one. A full sweep of 188 unique archived assurely.com URLs in
+    the Internet Archive found zero developer, docs, api-reference, swagger, or
+    openapi paths, and the marketing pages that describe the embedded/IaaS
+    product contain zero occurrences of the tokens "API", "developer",
+    "webhook", "SDK", or "OpenAPI".
+
+    This is the expected and correct outcome for a small US MGA. The US has no
+    federal insurance regulator and no open-insurance mandate — insurance is
+    regulated state by state under NAIC model laws — so nothing forces an MGA to
+    publish anything, and Assurely never did.
+  acordPosture: no ACORD reference found
+  acordEvidence: |
+    Searched the live site (404 everywhere) and the archived assurely.com corpus
+    for ACORD, AL3, ACORD XML, ACORD certified, NGDS, IVANS, agency download,
+    Applied Epic, and Vertafore AMS360. Zero matches. Assurely distributed
+    through partner platforms and its own hosted web flows, not through the
+    IVANS/agency-management-system download plumbing that carries ACORD AL3 and
+    ACORD XML between US carriers and independent agencies.
+  insuranceVerbs:
+    quote: hosted web flow only (tigermark.assurely.com, now offline); no documented API
+    bind: hosted web flow only; no documented API
+    issue: not exposed; no documented API
+    fnol: not exposed; no claims or FNOL surface documented or archived
+    audience: partner-only / consumer via partner-branded hosted pages
+    note: |
+      None of the four insurance verbs is available programmatically. Unlike the
+      genuinely API-first embedded players (Cover Genius XCover, Boost, Sure,
+      Extend), Assurely never published quote/bind/issue or FNOL endpoints.
+  authModel: |
+    No public authentication scheme is documented. No API keys, no OAuth2, no
+    mTLS, no SAML partner-portal documentation was found. Probes of
+    https://www.assurely.com/.well-known/openid-configuration and
+    https://www.assurely.com/.well-known/oauth-authorization-server both returned
+    HTTP 404. The only historical login surface was client.assurely.com, a broker
+    and partner client portal, which is now unreachable.
+  webhooks: none documented; no event catalog and no AsyncAPI found
+  postman: no public Postman collection or workspace found
+  graphql: no /graphql surface found; all application hosts are unreachable
+  grpc: no published .proto found
+  corporateStatus: |
+    Acquired by Equal Parts (announced 2025-06-26, BusinessWire), the acquirer's
+    second deal after Lumen Insurance. Equal Parts stated Assurely's operations
+    would move onto Equal Parts' technology platform. No successor developer
+    surface was identified: equalparts.com resolves to a domain-sale listing
+    (HTTP 403 redirecting to atom.com) and equalpartsinsurance.com fails TLS
+    negotiation.
+  transports:
+  - protocol: REST
+    documented: false
+    note: No REST API is documented or archived.
+  - protocol: GraphQL
+    documented: false
+  - protocol: gRPC
+    documented: false
+  - protocol: WebSocket
+    documented: false
+  - protocol: AsyncAPI/Events
+    documented: false
+  - protocol: ACORD AL3 / ACORD XML / EDI
+    documented: false
+    note: No ACORD or IVANS agency-download reference found anywhere.
+  - protocol: HTTPS hosted web application
+    documented: true
+    note: |
+      The real integration surface was partner-branded hosted quote/bind pages on
+      tigermark.assurely.com and client.assurely.com. Human/commercial onboarding,
+      not machine onboarding. Both hosts are now dead (dangling CNAME).
+probes:
+- url: https://www.assurely.com/
+  status: 404
+  date: '2026-07-25'
+  note: Squarespace "Website Expired" page. Site is no longer published.
+- url: https://assurely.com/
+  status: 404
+  date: '2026-07-25'
+  note: Redirects to www.assurely.com, same expired Squarespace page.
+- url: https://developer.assurely.com/
+  status: 0
+  date: '2026-07-25'
+  note: NXDOMAIN — host does not resolve.
+- url: https://developers.assurely.com/
+  status: 0
+  date: '2026-07-25'
+  note: NXDOMAIN — host does not resolve.
+- url: https://api.assurely.com/
+  status: 0
+  date: '2026-07-25'
+  note: |
+    Dangling CNAME to hostingelb-production-1845880914.us-east-2.elb.amazonaws.com,
+    which itself no longer resolves. Connection cannot be established.
+- url: https://docs.assurely.com/
+  status: 0
+  date: '2026-07-25'
+  note: |
+    CNAME to ghs.google.com (unconfigured Google-hosted mapping). TLS handshake
+    fails on 443; plain HTTP returns 404. Not a documentation site.
+- url: https://client.assurely.com/
+  status: 0
+  date: '2026-07-25'
+  note: |
+    Historical broker/partner client portal (login wall). Same dangling ELB CNAME;
+    unreachable.
+- url: https://tigermark.assurely.com/
+  status: 0
+  date: '2026-07-25'
+  note: |
+    Historical TigerMark D&O quote/bind application, including per-partner paths
+    (/partner/wefunder, /partner/fairmint). Same dangling ELB CNAME; unreachable.
+- url: https://www.assurely.com/developers
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/developer
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/api
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/partners
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/integrations
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/embedded-insurance
+  status: 404
+  date: '2026-07-25'
+  note: Live 404; content only recoverable from the Internet Archive.
+- url: https://www.assurely.com/openapi.json
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/swagger.json
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/robots.txt
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/sitemap.xml
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/.well-known/openid-configuration
+  status: 404
+  date: '2026-07-25'
+- url: https://www.assurely.com/.well-known/oauth-authorization-server
+  status: 404
+  date: '2026-07-25'
+sources:
+- url: https://web.archive.org/web/2024id_/https://www.assurely.com/embedded-insurance
+  type: Documentation
+  status: 200
+  note: |
+    Archived Embedded Insurance page. Describes the IaaS partnership model,
+    industries served, and case studies (TigerMark D&O with Silicon Prairie;
+    Builder's Risk with Buildertrend). Contains no mention of an API, SDK,
+    webhook, or developer resource.
+- url: https://web.archive.org/web/2024id_/https://www.assurely.com/solutions/tigermark
+  type: Documentation
+  status: 200
+  note: TigerMark D&O product page. No API or integration documentation.
+- url: https://web.archive.org/web/2024id_/https://www.assurely.com/partners
+  type: Documentation
+  status: 200
+  note: Partner page. Commercial partnership inquiry, no technical integration path.
+- url: https://web.archive.org/cdx/search/cdx?url=assurely.com&matchType=domain
+  type: Index
+  status: 200
+  note: |
+    CDX index sweep of the assurely.com domain. 188 unique non-asset URLs; zero
+    matches for developer, /docs, swagger, openapi, /api/v, acord, graphql,
+    postman, or sdk.
+- url: https://www.businesswire.com/news/home/20250626192100/en/Equal-Parts-Continues-Expansion-with-Acquisition-of-Assurely-Adding-Proprietary-DO-Platform-for-Startups
+  type: Press
+  note: Equal Parts acquisition of Assurely announced 2025-06-26.
+- url: https://www.linkedin.com/company/assurely
+  type: LinkedIn
+  note: Company profile.
+actions:
+  openapiHarvested: false
+  openapiDirectoryCreated: false
+  apisYmlApis: 0
+  reason: |
+    apis[] is intentionally empty. Assurely never published a public, documented
+    API, and its remaining hosted application surface is offline. Recording the
+    absence accurately is the finding — no API family was inferred or invented.
