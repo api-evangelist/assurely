@@ -1,0 +1,87 @@
+generated: '2026-07-25'
+method: searched
+source: |
+  BusinessWire acquisition announcement (2025-06-26), plus live DNS/HTTP probes
+  of every assurely.com host on 2026-07-25 and the repo's own review.yml.
+status: decommissioned
+summary: |
+  Assurely has no API lifecycle to document because it never shipped a public
+  API. What this artifact records instead is the lifecycle of the company's
+  public estate: Assurely was acquired by Equal Parts on 2025-06-26, and by
+  2026-07-25 its entire public surface had been shut down rather than migrated.
+  There is no versioning policy, no deprecation policy, no Sunset/Deprecation
+  header support, no SLA, and no status page — none of these were ever
+  published, and there is now no live surface on which they could exist.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: No API versioning scheme was ever published or archived.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: |
+    No RFC 8594 Sunset/Deprecation support and no deprecation policy. The
+    de facto deprecation event was an unannounced full shutdown of the public
+    estate following the acquisition.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+corporate:
+  acquired: true
+  acquired_by: Equal Parts
+  announced: '2025-06-26'
+  announcement_url: https://www.businesswire.com/news/home/20250626192100/en/Equal-Parts-Continues-Expansion-with-Acquisition-of-Assurely-Adding-Proprietary-DO-Platform-for-Startups
+  stated_plan: |
+    Equal Parts stated that Assurely's operations would move onto the Equal
+    Parts technology platform.
+  successor_surface: none identified
+  successor_probe:
+  - url: https://equalparts.com/
+    status: 403
+    date: '2026-07-25'
+    note: Domain-sale/parking response; not an operating company site.
+  - url: https://equalpartsinsurance.com/
+    status: 0
+    date: '2026-07-25'
+    note: Does not resolve / TLS negotiation fails.
+estate:
+- host: www.assurely.com
+  state: expired
+  status: 404
+  date: '2026-07-25'
+  note: Squarespace "Website Expired" interstitial. DNS still points at Squarespace.
+- host: assurely.com
+  state: expired
+  status: 404
+  date: '2026-07-25'
+- host: api.assurely.com
+  state: dangling-cname
+  status: 0
+  date: '2026-07-25'
+  note: CNAME to hostingelb-production-1845880914.us-east-2.elb.amazonaws.com (deleted).
+- host: client.assurely.com
+  state: dangling-cname
+  status: 0
+  date: '2026-07-25'
+- host: tigermark.assurely.com
+  state: dangling-cname
+  status: 0
+  date: '2026-07-25'
+- host: docs.assurely.com
+  state: unconfigured
+  status: 0
+  date: '2026-07-25'
+  note: CNAME to ghs.google.com; unconfigured Google-hosted mapping, never a docs site.
+- host: developer.assurely.com
+  state: nxdomain
+  status: 0
+  date: '2026-07-25'
+domain_retained: true
+domain_note: |
+  The assurely.com domain itself is still registered and actively used for
+  email — Google Workspace MX records, an SPF record including _spf.google.com,
+  _spf.reply.io and sendgrid.net, and a DMARC record (p=none) are all still
+  live as of 2026-07-25. The company mail plane outlived the web plane.

@@ -1,0 +1,34 @@
+# Assurely
+
+> Assurely was a United States insurtech and managing general agent (MGA) founded by David Carpentier and Ty Sagalow, building commercial property-and-casualty insurance for companies with unconventional funding models — most notably TigerMark, a directors-and-officers (D&O) product written for Regulation CF / Regulation A crowdfunding issuers and early-stage startups that incumbent carriers decline. Assurely was acquired by Equal Parts on 2025-06-26. As of 2026-07-25 its entire public surface is offline.
+
+## Status
+
+- Assurely never published a public API. There is no developer portal, no API reference, no OpenAPI or Swagger document, no GraphQL endpoint, no gRPC service, no AsyncAPI or webhook catalog, no Postman workspace, and no SDK or client library in any public package registry (npm, PyPI, RubyGems, NuGet, crates.io, Packagist all searched 2026-07-25, zero first-party results).
+- Assurely's "Insurance-as-a-Service" and "embedded insurance" marketing described a commercial revenue-share partnership in which Assurely stood up white-labeled quote-and-bind web pages for a vertical SaaS partner's users, backed by human advisory and administration. It was a hosted-page distribution model, not a programmable one.
+- The public estate is decommissioned. www.assurely.com returns HTTP 404 as an expired Squarespace site; api.assurely.com, client.assurely.com and tigermark.assurely.com are dangling CNAMEs to a deleted AWS load balancer; developer.assurely.com is NXDOMAIN.
+- The assurely.com domain is still registered and still carries live Google Workspace MX, SPF and DMARC records. The mail plane outlived the web plane.
+- No successor developer surface was identified at the acquirer. equalparts.com returns a domain-sale response; equalpartsinsurance.com does not resolve.
+
+## APIs
+
+No APIs. This provider's `apis[]` collection is intentionally empty — recording the verified absence is the finding.
+
+## Artifacts
+
+- [Provider profile (apis.yml)](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/apis.yml): APIs.json provider profile.
+- [Provider review](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/review.yml): Full API Evangelist review, including the archive sweep, ACORD posture, insurance-verb coverage, and every probe with its HTTP status.
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/lifecycle/assurely-lifecycle.yml): Acquisition, shutdown, and per-host state of the public estate.
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/conformance/assurely-conformance.yml): Cross-cutting and US P&C insurance standards posture, including the ACORD / IVANS finding.
+- [Well-known discovery](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/well-known/assurely-well-known.yml): Every /.well-known/ probe and its status.
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/security/assurely-domain-security.yml): Probed TLS, HSTS, DNSSEC, CAA, SPF and DMARC posture.
+
+## Company
+
+- [Website](https://www.assurely.com/): Marketing site (HTTP 404 as of 2026-07-25 — expired Squarespace).
+- [LinkedIn](https://www.linkedin.com/company/assurely): Company profile.
+- [Acquisition announcement](https://www.businesswire.com/news/home/20250626192100/en/Equal-Parts-Continues-Expansion-with-Acquisition-of-Assurely-Adding-Proprietary-DO-Platform-for-Startups): Equal Parts acquires Assurely, 2025-06-26.
+
+## Notes for agents
+
+There is nothing here to call. Do not attempt to construct an Assurely API base URL, endpoint, authentication scheme, or webhook — none was ever published, and every historical host is unreachable. Treat this repository as a record of verified absence for a small US managing general agent, not as an integration target.

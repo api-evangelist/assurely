@@ -1,0 +1,64 @@
+generated: '2026-07-25'
+method: searched
+source: live HTTP probes of every assurely.com host in apis.yml and review.yml
+summary: |
+  No /.well-known/ discovery document of any kind is published by Assurely. The
+  only reachable host, www.assurely.com, is an expired Squarespace site that
+  returns HTTP 404 for every path including the site root, so every well-known
+  probe returns 404 rather than a document. The application hosts
+  (api./client./tigermark.assurely.com) are dangling CNAMEs to a deleted AWS
+  load balancer and cannot be connected to at all (curl exit 0 / no HTTP
+  response). Recorded as verified absence — nothing was found and nothing was
+  inferred. No WellKnown, SecurityTxt, or APICatalog pointer is wired in
+  apis.yml because no such document exists.
+hosts:
+- host: https://www.assurely.com
+  reachable: true
+  note: Expired Squarespace site; HTTP 404 on all paths including /.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: https://api.assurely.com
+  reachable: false
+  note: |
+    CNAME to hostingelb-production-1845880914.us-east-2.elb.amazonaws.com, which
+    no longer resolves. No TCP connection possible; no HTTP status returned.
+  documents:
+  - path: /openapi.json
+    status: 0
+  - path: /.well-known/security.txt
+    status: 0
+- host: https://client.assurely.com
+  reachable: false
+  note: Same dangling ELB CNAME; historical broker/partner portal, unreachable.
+  documents: []
+- host: https://tigermark.assurely.com
+  reachable: false
+  note: Same dangling ELB CNAME; historical TigerMark quote/bind flow, unreachable.
+  documents: []
+archive_check:
+  source: https://web.archive.org/cdx/search/cdx?url=assurely.com&matchType=domain
+  unique_urls: 218
+  note: |
+    Independent CDX sweep re-run on 2026-07-25. The only archived /.well-known/
+    paths (dnt-policy.txt, nodeinfo, openid-configuration, security.txt,
+    trust.txt) are third-party crawler probes against the Squarespace host that
+    returned 404 — they are not documents Assurely ever published. Likewise
+    /api/1/performance/settings and /api/ui-extensions/ are Squarespace platform
+    endpoints, not an Assurely API.

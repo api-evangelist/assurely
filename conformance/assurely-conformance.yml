@@ -1,0 +1,80 @@
+generated: '2026-07-25'
+method: derived
+source: |
+  review.yml (2026-07-25 provider review), plus live probes and an independent
+  Internet Archive CDX sweep of assurely.com on 2026-07-25. No OpenAPI,
+  AsyncAPI, GraphQL SDL, or .proto exists for this provider, so nothing here is
+  derived from a machine-readable contract — every assertion is grounded in the
+  documented absence of a surface on which the standard could be implemented.
+summary: |
+  Assurely conforms to none of the cross-cutting API standards and none of the
+  US property-and-casualty insurance interchange standards. It never published a
+  machine-readable contract, and its distribution model was partner-branded
+  hosted quote-and-bind web pages rather than either a REST API or the
+  ACORD/IVANS agency-download plumbing that carries data between US carriers and
+  independent agencies. No compliance program, certification, or audit report
+  (SOC 2, ISO 27001, PCI DSS, HIPAA) was ever published either, so no Compliance
+  pointer is wired.
+standards:
+- id: openapi
+  conforms: false
+  evidence: |
+    No OpenAPI or Swagger document found. Probed /openapi.json, /swagger.json on
+    www.assurely.com (404) and api.assurely.com (unreachable); CDX sweep of 218
+    archived assurely.com URLs returned zero openapi/swagger paths.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming, or webhook surface documented or archived.
+- id: graphql
+  conforms: false
+  evidence: No /graphql endpoint; all application hosts are unreachable.
+- id: grpc
+  conforms: false
+  evidence: No published .proto found in any repository or archive.
+- id: oauth2
+  conforms: false
+  evidence: |
+    https://www.assurely.com/.well-known/oauth-authorization-server returns 404;
+    no OAuth flow documented for any partner or client integration.
+- id: oidc
+  conforms: false
+  evidence: |
+    https://www.assurely.com/.well-known/openid-configuration returns 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No API, therefore no error envelope of any format.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on the only reachable host.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No deprecation or sunset signaling; the estate was shut down unannounced.
+- id: acord-al3
+  conforms: false
+  evidence: |
+    Zero matches for ACORD, AL3, or agency download across the live site and the
+    archived assurely.com corpus. Assurely distributed through partner platforms
+    and its own hosted flows, not through IVANS agency-management-system rails.
+- id: acord-xml
+  conforms: false
+  evidence: |
+    No ACORD XML reference found. No ACORD certification claim was ever
+    published.
+- id: ivans-download
+  conforms: false
+  evidence: |
+    No IVANS, NGDS, Applied Epic, or Vertafore AMS360 integration referenced.
+- id: soc2
+  conforms: false
+  evidence: |
+    No trust center, no audit report, and no certification claim found. Probe of
+    trust./security./compliance surfaces returned no verified hit.
+- id: iso-27001
+  conforms: false
+  evidence: No certification claim published.
+regulatory_context: |
+  The United States has no federal insurance regulator and no open-insurance
+  mandate. Insurance is regulated state by state under NAIC model laws, so no
+  rule obliges a managing general agent to publish an API, a specification, or a
+  conformance claim. Assurely's total absence of standards conformance is the
+  expected posture for a small US MGA, not a deviation from a requirement.

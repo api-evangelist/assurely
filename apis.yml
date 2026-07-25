@@ -39,6 +39,18 @@ modified: '2026-07-25'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  name: Assurely domain security posture (probed)
+  url: security/assurely-domain-security.yml
+- type: Lifecycle
+  name: Assurely lifecycle and public-estate status
+  url: lifecycle/assurely-lifecycle.yml
+- type: Conformance
+  name: Assurely standards conformance (cross-cutting + US P&C insurance)
+  url: conformance/assurely-conformance.yml
+- type: LLMsTxt
+  name: Assurely llms.txt
+  url: llms/assurely-llms.txt
 - type: Website
   url: https://www.assurely.com/
 - type: LinkedIn
