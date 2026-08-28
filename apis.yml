@@ -23,6 +23,17 @@ description: >-
   www.assurely.com returns HTTP 404 as an expired Squarespace site, and
   api./client./tigermark.assurely.com are dangling CNAMEs to a deleted AWS load
   balancer. Home market is the United States.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Insurance
