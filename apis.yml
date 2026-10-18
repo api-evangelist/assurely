@@ -55,7 +55,7 @@ tags:
 - Managing General Agent
 - Property and Casualty
 - Directors and Officers
-- Brokers
+- Brokerage
 - Crowdfunding
 tags_raw:
 - Insurance
@@ -67,6 +67,7 @@ tags_raw:
 - Directors and Officers
 - Broker
 - Crowdfunding
+- Brokers
 created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
