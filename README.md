@@ -1,4 +1,4 @@
-# Assurely (assurely)
+# Assurely
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,65 +64,79 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Assurely is a United States insurtech and managing general agent (MGA) founded by David Carpentier and Ty Sagalow that builds and distributes commercial property-and-casualty insurance for companies with unconventional funding models — most notably TigerMark, a directors-and-officers (D&O) product written for Regulation CF / Regulation A crowdfunding issuers and early-stage startups that incumbent carriers decline. Assurely positioned itself as an "Insurance-as-a-Service" (IaaS) provider embedding industry-specific products plus a multi-carrier marketplace into vertical SaaS operating systems, and stated licensing in all 50 states and Bermuda. Assurely was acquired by Equal Parts on 2025-06-26.
+Assurely is a United States insurtech and managing general agent (MGA) founded by David Carpentier and Ty Sagalow that builds and distributes commercial property-and-casualty insurance for companies with unconventional funding models, most notably TigerMark, a directors-and-officers (D&O) product written for Regulation CF / Regulation A crowdfunding issuers and early-stage startups that incumbent carriers decline. Assurely positioned itself as an "Insurance-as-a-Service" (IaaS) provider embedding industry-specific products plus a multi-carrier marketplace into vertical SaaS operating systems in fintech and capital raising, proptech and construction, property management, blockchain and digital assets, and SMB marketplaces (named partners include Wefunder, Silicon Prairie, Fairmint, Dalmore Group, Buildertrend and CoConstruct), and stated licensing in all 50 states and Bermuda. Its API posture is the honest floor of this sector — no public, self-serve developer portal, no API reference, and no downloadable OpenAPI was ever published. "Embedded" here meant a commercial partnership with white-labeled quote-and-bind web flows on client.assurely.com and tigermark.assurely.com plus human advisory and administration, not a documented partner API. Assurely was acquired by Equal Parts on 2025-06-26, and as of the 2026-07-25 review its entire public surface is offline — www.assurely.com returns HTTP 404 as an expired Squarespace site, and api./client./tigermark.assurely.com are dangling CNAMEs to a deleted AWS load balancer. Home market is the United States.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/assurely/refs/heads/main/apis.yml)
+**Areas:** Insurance · United States · Insurtech · Embedded Insurance · Managing General Agent · Property and Casualty · Directors and Officers · Brokerage · Crowdfunding
 
-## Tags
+## Assurely on APIs.io
 
-- Insurance
-- United States
-- Insurtech
-- Embedded Insurance
-- Managing General Agent
-- Property and Casualty
-- Directors and Officers
-- Broker
-- Crowdfunding
+Everything profiled for Assurely is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/assurely/](https://apis.io/providers/assurely/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-25
-- **Modified:** 2026-07-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-**None.** Assurely publishes no public API.
+Authentication, trust centre, and vulnerability disclosure.
 
-There is no developer portal, no API reference, no downloadable OpenAPI or Swagger definition, no Postman workspace, no GraphQL endpoint, and no webhook or event catalog. `developer.assurely.com` and `developers.assurely.com` do not resolve. `docs.assurely.com` is an unconfigured `ghs.google.com` mapping that fails TLS on 443 and returns HTTP 404 over plain HTTP.
+- [Assurely Domain Security](https://apis.io/security/assurely/assurely-domain-security/)
 
-"Embedded" in Assurely's marketing meant a commercial revenue-share partnership with white-labeled, partner-branded quote-and-bind web pages — `tigermark.assurely.com/partner/wefunder`, `client.assurely.com/partner/coconstruct` — backed by human advisory and administration. It was a hosted-page distribution model, not a programmable one. A sweep of 188 unique archived `assurely.com` URLs found zero developer, docs, swagger, or openapi paths.
+## Where to find this API
 
-### ACORD posture
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-**No ACORD reference found.** No mention of ACORD, AL3, ACORD XML, NGDS, IVANS, agency download, Applied Epic, or Vertafore AMS360 anywhere on the live or archived site. Assurely distributed through partner platforms and its own hosted flows rather than the IVANS agency-download plumbing that carries ACORD standards between US carriers and independent agencies.
+- [Website](https://www.assurely.com/)
 
-### Quote / bind / issue / FNOL
+## API Evangelist rating
 
-| Verb | Exposure |
-| --- | --- |
-| Quote | Hosted web flow only (now offline). No API. |
-| Bind | Hosted web flow only. No API. |
-| Issue | Not exposed. |
-| FNOL / Claims | Not exposed. No claims surface documented or archived. |
+**Kin Score 4.5** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-### Current status
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 0.0 |
 
-As of the 2026-07-25 review Assurely's public estate is offline:
+**Agent readiness 0.0** — human-only
 
-- `https://www.assurely.com/` — **HTTP 404**, Squarespace "Website Expired" page
-- `https://api.assurely.com/` — dangling CNAME to a deleted AWS load balancer, does not resolve
-- `https://client.assurely.com/` — same dangling CNAME, unreachable
-- `https://tigermark.assurely.com/` — same dangling CNAME, unreachable
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-This is the expected outcome for a small US MGA. The United States has no federal insurance regulator and no open-insurance mandate — insurance is regulated state by state under NAIC model laws — so nothing compels a carrier, MGA, or broker to publish an API, and Assurely never did.
+**Regulatory alignment 9.6** — Insurance
 
-## Links
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/assurely/](https://apis.io/providers/assurely/).
 
-- [Website](https://www.assurely.com/) (expired, HTTP 404)
-- [LinkedIn](https://www.linkedin.com/company/assurely)
-- [Equal Parts acquisition announcement (2025-06-26)](https://www.businesswire.com/news/home/20250626192100/en/Equal-Parts-Continues-Expansion-with-Acquisition-of-Assurely-Adding-Proprietary-DO-Platform-for-Startups)
+## How this profile is made
 
-## Review
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-See [review.yml](review.yml) for the full API Evangelist reviewer findings, probe log with HTTP statuses, and source list.
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Assurely: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/assurely/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
